@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="">
+    <title>Document</title>
+</head>
+<style>
+    .container {
+    max-width: 600px;
+    margin: 50px auto;
+    background-color: #1D1A39;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+.add-task {
+    display: flex;
+    margin-top: 20px;
+}
+.add-task input[type="text"] {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+.add-task button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.add-task button:hover {
+    background-color: #220bf3;
+}
+</style>
+<body>
+  
+<div class="container">
+    <h1>TODO List</h1>
+    <form action="/editfunction/{{task.id}}" method="post">
+    <div class="add-task" >
+            {% csrf_token %}
+            <input type="text" value="{{task.todolist}}" name="task" >
+            <button type="submit">Edit</button>
+        </div>
+    </form>
+</div>
+</body>
+</html>
